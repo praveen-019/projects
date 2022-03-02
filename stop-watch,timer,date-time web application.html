@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>project-time</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    </head>
+
+    <style>
+        section{
+            padding: 60px 0;
+        }
+    </style>
+    <body>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-md navbar-light px-2 my-auto bg-light">
+            <div class="container-xxl">
+                <!-- navbar brand or title -->
+                <h3 class="d-md-none align-center">
+                    <i class="bi bi-clock text-primary"></i>
+                    CLOCK
+                </h3>
+
+                <!-- tabs -->
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item d-none d-md-inline" role="presentation">
+                      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                        <i class="bi bi-clock"></i>
+                        Clock
+                        </button>
+                    </li>
+                    <li class="nav-item d-none d-md-inline" role="presentation">
+                      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                        <i class="bi bi-stopwatch"></i>
+                        Stop Watch
+                        </button>
+                    </li>
+                    <li class="nav-item d-none d-md-inline" role="presentation">
+                      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                        <i class="bi bi-clock-history"></i>
+                        Timer
+                        </button>
+                    </li>
+                </ul>
+                <!-- toggle button for mobile nav -->
+                <button class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- navbar links -->
+                <div class="collapse navbar-collapse align-items-start" id="main-nav">
+                    <ul class="nav flex-column nav-pills me-3" id="pills-tab" role="tablist" aria-orientation="vertical">
+                        <li class="nav-item d-block d-sm-none" role="presentation">
+                          <button class="nav-link active pe-5" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i class="bi bi-app-indicator px-2"></i>Clock</button>
+                        </li>
+                        <li class="nav-item d-block d-sm-none" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="bi bi-app-indicator px-2"></i>Stop Watch</button>
+                        </li>
+                        <li class="nav-item d-block d-sm-none" role="presentation">
+                          <button class="nav-link pe-5" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="bi bi-app-indicator px-2"></i>Timer</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section id="intro" class="bg-light">
+            <div class="container-fluid">
+                <div class="row justify-content-center my-5">
+                    <div class="col-md-8">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="card border-primary border-2 pt-4 mb-3 shadow-lg">
+                                    <div class="card-body text-center py-5">
+                                        <p class="display-1 my-4 text-primary" id="clock"></p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <p1 id="dt"></p1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="card border-primary border-2 shadow-lg">
+                                    <div class="card-body text-center py-4">
+                                        <p class="display-1 my-4 text-primary">
+                                            <span id="hours">00</span>
+                                            :
+                                            <span id="minutes">00</span>
+                                            :
+                                            <span id="seconds">00</span>
+                                        </p>
+                                        <button class="btn btn-outline-primary btn-lg mt-3" id="my-button2">
+                                            <i class="bi bi-arrow-counterclockwise"></i>
+                                            <span class="d-none d-md-inline">Reset</span>
+                                        </button>
+                                        <button class="btn btn-outline-primary btn-lg mt-3" id="my-button1">
+                                            <i class="bi bi-play-circle"></i>
+                                            <span class="d-none d-md-inline">Start</span>
+                                        </button>
+                                        <button class="btn btn-outline-primary btn-lg mt-3" id="my-button3">
+                                            <i class="bi bi-stop-circle"></i>
+                                            <span class="d-none d-md-inline">Stop</span>
+                                        </button>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <a href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">
+                                            History
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="card border-primary border-2 shadow-lg">
+                                    <div class="card-body text-center py-5">
+                                        <p class="display-1 my-4 text-primary">
+                                            <span id="hourss">00</span>
+                                            :
+                                            <span id="minutess">00</span>
+                                        </p>
+                                        <button class="btn btn-outline-primary btn-lg mt-3" id="my-button33">
+                                            <i class="bi bi-stop-circle"></i>
+                                            <span class="d-none d-md-inline">Stop</span>
+                                        </button>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-outline-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            <i class="bi bi-box-arrow-in-right"></i>
+                                            <span class="d-none d-md-inline">Enter</span>
+                                        </button>
+                                        <button class="btn btn-outline-primary btn-lg mt-3" id="my-button22">
+                                            <i class='bi bi-pause-circle'></i>
+                                            <span class="d-none d-md-inline">Pause</span>
+                                        </button><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-light">
+            <div class="container-lg">
+
+                <div class="text-center">
+                    <h2>Get in Touch</h2>
+                    <p class="lead">Questions to ask? Fill out the form to contact me directly...</p>
+                </div>
+
+                <div class="row justify-content-center my-1">
+                    <div class="col-md-8 col-sm-8 text-center">
+
+                        <form>
+                            <label for="email" class="form-label">Email address:</label>
+                            <div class="input-group mb-1">
+                                <span class="input-group-text">
+                                    <i class="bi bi-envelope-fill text-secondary"></i>
+                                </span>
+                                <input type="text" id="email" class="form-control" placeholder="e.g. praveentatapudi019@gmail.com">
+                                <!-- tooltip -->
+                                <span class="input-group-text">
+                                    <span class="tt" data-bs-placement="bottom" title="Enter an email address we can replay to.">
+                                        <i class="bi bi-question-circle text-muted"></i>
+                                    </span>
+                                </span>
+                            </div>
+
+                            <label for="name" class="form-label">Name:</label>
+                            <div class="mb-4 input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-person-fill text-secondary"></i>
+                                </span>
+                                <input type="text" id="name" class="form-control" placeholder="e.g. Praveen">
+                                <!-- tooltip -->
+                                <span class="input-group-text">
+                                    <span class="tt" data-bs-placement="bottom" title="Pretty self explanatory really...">
+                                        <i class="bi bi-question-circle text-muted"></i>
+                                    </span>
+                                </span>
+                            </div>
+                            
+                            <div class="mb-4 form-floating">
+                                <textarea id="query"class="form-control" style="height: 140px" placeholder="query"></textarea>
+                                <label for="query">your query...</label>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-success">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- side panel or offcanvas -->
+        <div class="offcanvas offcanvas-end bg-light" id="sidebar" tabindex="-1" aria-labelledby="sidebar-label">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="sidebar-label">Stop-Watch History</h5>
+                <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <div id="update"></div>
+                
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Enter Input</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Here enter the number of minutes the timer should run :
+                        <input type="text" id="ent" class="form-control bg-light" placeholder="e.g. 5">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="my-button11" data-bs-dismiss="modal">
+                            <i class="bi bi-play-circle"></i>
+                            Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            setInterval(clock,1000);
+            function clock() {
+                const date = new Date();
+                document.getElementById("clock").innerHTML = date.toLocaleTimeString();
+                document.getElementById("dt").innerHTML = date.toDateString();
+            }
+            var button1 = document.getElementById("my-button1");
+            var button2 = document.getElementById("my-button2");
+            var button3 = document.getElementById("my-button3");
+
+            const hours = document.getElementById("hours");
+            const minutes = document.getElementById("minutes");
+            const seconds = document.getElementById("seconds");
+
+            var sec = 0;
+            var min = 0;
+            var hor = 0;
+
+            var ha = 0;
+            var ma = 0;
+            var sa = 0;
+
+            var myInterval = -1;
+
+            button1.addEventListener("click",function(event){
+                const date = new Date();
+                if (myInterval == -1) {
+                    button1.innerHTML = "<i class='bi bi-pause-circle'></i> <span class='d-none d-md-inline'>Pause</span>"
+                    var comment = "Stop-Watch started at - "+String(ha).padStart(2, '0')+":"+String(ma).padStart(2, '0')+":"+String(sa).padStart(2, '0')+" - time : "+date.toLocaleTimeString();
+                    var newParagraph = document.createElement('p');
+                    newParagraph.textContent = comment;
+                    document.getElementById("update").appendChild(newParagraph);
+                    myInterval = setInterval(printtime, 1000);
+                } else {
+                    var comment = "Stop-Watch paused at - "+ha+":"+ma+":"+sa+" - time : "+date.toLocaleTimeString();
+                    var newParagraph = document.createElement('p');
+                    newParagraph.textContent = comment;
+                    document.getElementById("update").appendChild(newParagraph);
+                    button1.innerHTML = "<i class='bi bi-play-circle'></i> <span class='d-none d-md-inline'>Start</span>";
+                    clearInterval(myInterval);
+                    myInterval = -1;
+                }
+            });
+
+            button2.addEventListener("click",function(event){
+                const date = new Date();
+                var comment = "Stop-Watch reset at - "+ha+":"+ma+":"+sa+" - time : "+date.toLocaleTimeString();
+                var newParagraph = document.createElement('p');
+                newParagraph.textContent = comment;
+                document.getElementById("update").appendChild(newParagraph);
+                button1.innerHTML =  "<i class='bi bi-play-circle'></i> <span class='d-none d-md-inline'>Start</span>";
+                clearInterval(myInterval);
+                myInterval = -1;
+                hor = 0;
+                min = 0;
+                sec = 0;
+                hours.innerHTML = '0'.padStart(2, '0');
+                minutes.innerHTML = '0'.padStart(2, '0');
+                seconds.innerHTML = '0'.padStart(2, '0');
+
+                ha = String(hor).padStart(2, '0');
+                ma = String(min).padStart(2, '0');
+                sa = String(sec).padStart(2, '0');
+            });
+
+            button3.addEventListener("click",function(event){
+                const date = new Date();
+                var comment = "Stop-Watch stoped at - "+ha+":"+ma+":"+sa+" - time : "+date.toLocaleTimeString();
+                var newParagraph = document.createElement('p');
+                newParagraph.textContent = comment;
+                document.getElementById("update").appendChild(newParagraph);
+                button1.innerHTML =  "<i class='bi bi-play-circle'></i> <span class='d-none d-md-inline'>Start</span>";
+                clearInterval(myInterval);
+                myInterval = -1;
+                hor = 0;
+                min = 0;
+                sec = 0;
+            });
+
+            function printtime() {
+                if(min<60 && sec<59) {
+                    sec ++;
+                    hours.innerHTML = String(hor).padStart(2, '0');
+                    minutes.innerHTML = String(min).padStart(2, '0');
+                    seconds.innerHTML = String(sec).padStart(2, '0');
+
+                    ha = String(hor).padStart(2, '0');
+                    ma = String(min).padStart(2, '0');
+                    sa = String(sec).padStart(2, '0');
+                } else if(min<59){
+                    min ++;
+                    sec = 0;
+                    hours.innerHTML = String(hor).padStart(2, '0');
+                    minutes.innerHTML = String(min).padStart(2, '0');
+                    seconds.innerHTML = String(sec).padStart(2, '0');
+
+                    ha = String(hor).padStart(2, '0');
+                    ma = String(min).padStart(2, '0');
+                    sa = String(sec).padStart(2, '0');
+                } else {
+                    hor ++;
+                    min = 0;
+                    sec = 0;
+                    hours.innerHTML = String(hor).padStart(2, '0');
+                    minutes.innerHTML = String(min).padStart(2, '0');
+                    seconds.innerHTML = String(sec).padStart(2, '0');
+
+                    ha = String(hor).padStart(2, '0');
+                    ma = String(min).padStart(2, '0');
+                    sa = String(sec).padStart(2, '0');
+                }
+            }
+
+            var button11 = document.getElementById("my-button11");
+            var button22 = document.getElementById("my-button22");
+            var button33 = document.getElementById("my-button33");
+
+            const hourss = document.getElementById("hourss");
+            const minutess = document.getElementById("minutess");
+
+            var secc = 0;
+            myIntervall = -1;
+            var st = 0;
+            var a;
+            var p;
+            var b;
+
+            button11.addEventListener("click",function(event){
+                globalThis.p = document.getElementById("ent").value;
+                globalThis.a = parseInt(p);
+                globalThis.b = a*60;
+                if (myIntervall == -1) {
+                    myIntervall = setInterval(timer, 1000);
+                }
+            });
+            button22.addEventListener("click",function(event){
+                if (myIntervall == -1) {
+                    button22.innerHTML = "<i class='bi bi-pause-circle'></i> <span class='d-none d-md-inline'>Pause</span>";
+                    myIntervall = setInterval(timer, 1000);
+                } else {
+                    button22.innerHTML = "<i class='bi bi-play-circle'></i> <span class='d-none d-md-inline'>Resume</span>";
+                    clearInterval(myIntervall);
+                    myIntervall = -1;
+                }
+            });
+            button33.addEventListener("click",function(event){
+                if (st == 0) {
+                    button33.innerHTML = "<i class='bi bi-arrow-counterclockwise'></i> <span class='d-none d-md-inline'>Reset</span>";
+                    clearInterval(myIntervall);
+                    st = 1;
+                    a = 0;
+                    b = 0;
+                } else {
+                    button33.innerHTML = "<i class='bi bi-stop-circle'></i> <span class='d-none d-md-inline'>Stop</span>";
+                    st = 0;
+                    hourss.innerHTML = String(a).padStart(2, '0');
+                    minutess.innerHTML = String(b).padStart(2, '0');
+                }
+            });
+            function timer() {
+                if(b>0){
+                    secc = 1+secc%60;
+                    if(secc == 1){
+                        hourss.innerHTML = String(a).padStart(2, '0');
+                        minutess.innerHTML = '0'.padStart(2, '0');
+                        a--;
+                    } else{
+                        hourss.innerHTML = String(a).padStart(2, '0');
+                        minutess.innerHTML = String(61-secc).padStart(2, '0');
+                    }
+                    b--;
+                }
+            }
+
+            const tooltips = document.querySelectorAll(".tt")
+            tooltips.forEach(t => {
+                new bootstrap.Tooltip(t)
+            })
+        </script>
+    </body>
+</html>
